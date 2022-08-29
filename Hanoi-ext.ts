@@ -35,17 +35,19 @@ namespace Hanoi {
     //%block.loc.zh-CN="自选难度 开始游戏"
     //%weight=76
     export function gamestart() {
+        Hanoi.init()
+
         story.startCutscene(function () {
             story.printCharacterText("请选择游戏难度")
             story.showPlayerChoices("很简单", "普普通通", "有点难")
             if (story.checkLastAnswer("很简单")) {
-                createDisk(3)
+                Hanoi.createDisk(3)
             }
             else if (story.checkLastAnswer("普普通通")) {
-                createDisk(4)
+                Hanoi.createDisk(4)
             }
             else {
-                createDisk(5)
+                Hanoi.createDisk(5)
             }
 
             story.cancelAllCutscenes()
@@ -61,10 +63,10 @@ namespace Hanoi {
     //%weight=76
     export function transforDiskTo(loc1: pillars = 1, loc2: pillars = 1) {
         if(loc1!=loc2){
-            if(!currenDisk){
-                setCurrentDisk(loc1 - 1)
+            if(!Hanoi.currentDisk){
+                Hanoi.setCurrentDisk(loc1 - 1)
             }
-            putDownDisk(currenDisk,loc2)
+            Hanoi.putDownDisk(Hanoi.currentDisk,loc2)
         }
     }
     //%block
@@ -77,7 +79,7 @@ namespace Hanoi {
     export function onGameStart(l:difficulty=4,s:gamespeed=1000,f:()=>void){
         pause(5000)
         createDisk(l)
-        isgamestart = 1
+        Hanoi.isgamestart = 1
         f()
     }
 }// 在此处添加您的代码
