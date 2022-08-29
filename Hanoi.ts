@@ -1,10 +1,19 @@
-namespace Hanoi {
+namespace SpriteKind {
+    export const pointer = SpriteKind.create()
+    export const disk = SpriteKind.create()
+    export const column = SpriteKind.create()
+}
 
+namespace Hanoi {
     // 在此处添加您的代码
     controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-        pause(speed)
-        setCurrentDisk(pointPosition)
-        currentDisk.setPosition(光标.x, 光标.y + 16)
+        if (isgamestart) {
+            pause(speed)
+            setCurrentDisk(pointPosition)
+            if (currentDisk != null) {
+                currentDisk.setPosition(光标.x, 光标.y + 16)
+            }
+        }
     })
     export function createDisk(count: number) {
         color = 1
@@ -74,10 +83,8 @@ namespace Hanoi {
     let DiskY = 0
     let length = 0
     let color = 0
-    export let list1: Sprite[] = []
-    export let list2: Sprite[] = []
-    export let list3: Sprite[] = []
-    let columns = [list1, list2, list3]
+
+    let columns:Sprite[][] = null
     
     let 柱子: Sprite = null
     export let isgamestart = 0
@@ -179,6 +186,7 @@ namespace Hanoi {
             tiles.placeOnTile(柱子, tiles.getTileLocation(distance, 4))
             distance += 3
             柱子.y += 6
+            columns = [list1, list2, list3]
         }
     }
 

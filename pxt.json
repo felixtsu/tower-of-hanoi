@@ -1,5 +1,5 @@
 {
-    "name": "Tower of hanoi1 #2",
+    "name": "Tower of hanoi",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -14,7 +14,8 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "Hanoi.ts",
-        "Hanoi-ext.ts"
+        "Hanoi-ext.ts",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
@@ -30,7 +31,7 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj",
+    "preferredEditor": "pyprj",
     "compilerOptions": {
         "experimentalDecorators": true
     }

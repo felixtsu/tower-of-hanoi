@@ -63,10 +63,10 @@ namespace Hanoi {
     //%weight=76
     export function transforDiskTo(loc1: pillars = 1, loc2: pillars = 1) {
         if(loc1!=loc2){
-            if(!Hanoi.currentDisk){
-                Hanoi.setCurrentDisk(loc1 - 1)
+            if(!currentDisk){
+                setCurrentDisk(loc1 - 1)
             }
-            Hanoi.putDownDisk(Hanoi.currentDisk,loc2)
+            putDownDisk(currentDisk,loc2)
         }
     }
     //%block
